@@ -2,42 +2,50 @@ import { heroData } from '../../data/content';
 
 const Hero = () => {
     return (
-        <section id="hero" className="relative bg-white overflow-hidden">
-            <div className="section-container section-padding">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-                    {/* Text Content */}
-                    <div className="flex flex-col justify-center space-y-8">
-                        <h1 className="heading-primary leading-tight">
+        <section id="hero" className="overflow-hidden bg-[#f8f9f5]">
+            <div className="section-container pb-16 pt-14 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
+                <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
+                    <div className="flex flex-col items-start">
+                        <p className="eyebrow mb-5 flex items-center gap-2">
+                            <span className="h-2 w-2 rounded-full bg-[#9cb85b]" />
+                            Digital partners for ambitious teams
+                        </p>
+                        <h1 className="heading-primary max-w-[620px]">
                             {heroData.headline}
                         </h1>
-                        <p className="text-muted text-lg md:text-xl">
+                        <p className="text-muted mt-6 max-w-[520px] text-lg">
                             {heroData.description}
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <a href="#contact" className="btn-primary">
+                        <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:gap-4">
+                            <a href="#contact" className="btn-primary w-full sm:w-auto">
                                 {heroData.primaryCTA}
+                                <span aria-hidden="true">↗</span>
                             </a>
-                            <a href="#about" className="btn-secondary">
+                            <a href="#about" className="btn-secondary w-full sm:w-auto">
                                 {heroData.secondaryCTA}
                             </a>
                         </div>
+                        <div className="mt-10 flex flex-wrap gap-x-5 gap-y-2 border-t border-[#e1e6df] pt-5 text-xs font-semibold uppercase text-[#68746b]">
+                            <span>Strategy</span>
+                            <span>Digital design</span>
+                            <span>Growth</span>
+                        </div>
                     </div>
 
-                    {/* Image Content */}
-                    <div className="relative">
-                        <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl">
+                    <div className="relative min-w-0">
+                        <div className="aspect-[4/3] overflow-hidden rounded-sm bg-[#dce4da]">
                             <img
                                 src={heroData.image}
                                 alt="Business professionals collaborating"
-                                className="object-cover w-full h-full"
-                                loading="lazy"
+                                className="h-full w-full object-cover"
+                                fetchPriority="high"
                             />
                         </div>
-                        {/* Decorative background blob (optional Tailwind technique) */}
-                        <div className="absolute -inset-4 bg-blue-50 rounded-3xl -z-10 transform rotate-3"></div>
+                        <div className="absolute bottom-4 left-4 max-w-[230px] bg-[#f8f9f5] px-4 py-3 sm:bottom-6 sm:left-6 sm:px-5">
+                            <span className="block text-xs font-semibold uppercase text-[#315c4b]">Primora, in practice</span>
+                            <span className="mt-1 block text-sm font-medium text-[#1f2a25]">Clear thinking. Measurable progress.</span>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </section>

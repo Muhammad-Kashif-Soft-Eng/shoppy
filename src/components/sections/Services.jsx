@@ -4,48 +4,49 @@ const Services = () => {
     return (
         <section id="services" className="bg-white">
             <div className="section-container section-padding">
-
-                {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">
-                        {servicesData.heading}
-                    </h2>
-                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
-                        {servicesData.subheading}
-                    </h3>
+                <div className="mb-10 flex flex-col justify-between gap-5 md:mb-14 md:flex-row md:items-end">
+                    <div className="max-w-2xl">
+                        <h2 className="eyebrow mb-3">{servicesData.heading}</h2>
+                        <h3 className="section-title">{servicesData.subheading}</h3>
+                    </div>
+                    <p className="section-description max-w-sm md:pb-1">
+                        Focused expertise, brought together to move your business forward.
+                    </p>
                 </div>
 
-                {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {servicesData.items.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-gray-50 rounded-xl p-8 border border-gray-100 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:bg-white group"
+                            className={`group flex min-h-[270px] flex-col border p-6 transition-colors duration-200 sm:p-7 ${index === 0
+                                ? 'border-[#315c4b] bg-[#315c4b] text-white'
+                                : 'border-[#e4e8e1] bg-[#f8f9f5] text-[#1f2a25] hover:border-[#aab8a8]'
+                                }`}
                         >
-                            {/* Icon */}
-                            <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
+                            <div className="mb-8 flex items-center justify-between">
+                                <span className={`text-xs font-semibold ${index === 0 ? 'text-[#d7ed84]' : 'text-[#849087]'}`}>
+                                    0{index + 1}
+                                </span>
                                 <svg
-                                    className="w-7 h-7 text-blue-600 group-hover:text-white transition-colors duration-300"
+                                    className={`h-6 w-6 ${index === 0 ? 'text-[#d7ed84]' : 'text-[#315c4b]'}`}
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
-                                    strokeWidth="2"
+                                    strokeWidth="1.6"
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" d={service.icon} />
                                 </svg>
                             </div>
 
-                            {/* Content */}
-                            <h4 className="text-xl font-bold text-gray-900 mb-3">
+                            <h4 className={`mb-3 text-lg font-semibold ${index === 0 ? 'text-white' : 'text-[#1f2a25]'}`}>
                                 {service.title}
                             </h4>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className={`mt-auto text-sm leading-relaxed ${index === 0 ? 'text-white/75' : 'text-[#65716a]'}`}>
                                 {service.description}
                             </p>
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

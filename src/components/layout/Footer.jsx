@@ -2,28 +2,24 @@ import { companyData, footerData } from '../../data/content';
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-900 pt-16 pb-8 text-gray-300 border-t border-gray-800">
+        <footer className="border-t border-white/10 bg-[#18231e] py-14 text-[#dce3dc] sm:py-16">
             <div className="section-container">
-
-                {/* Top Footer / Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-
-                    {/* Brand & Description */}
+                <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.8fr_0.8fr_0.8fr] lg:gap-12">
                     <div className="lg:col-span-1">
-                        <a href="/" className="inline-block mb-6">
-                            <span className="text-2xl font-bold text-white tracking-wide">{companyData.name}</span>
+                        <a href="/" className="mb-5 inline-flex items-center gap-2 text-white">
+                            <span className="grid h-8 w-8 place-items-center rounded-sm bg-[#d7ed84] text-sm font-bold text-[#24483a]">P</span>
+                            <span className="text-xl font-bold">{companyData.name}</span>
                         </a>
-                        <p className="text-gray-400 leading-relaxed mb-6">
+                        <p className="mb-6 max-w-xs text-sm leading-relaxed text-white/60">
                             {footerData.description}
                         </p>
-                        {/* Social Icons */}
-                        <div className="flex space-x-4">
+                        <div className="flex gap-3">
                             {footerData.socials.map((social, index) => (
                                 <a
                                     key={index}
                                     href={social.path}
                                     aria-label={social.name}
-                                    className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors duration-300"
+                                    className="grid size-9 place-items-center border border-white/15 text-white/70 transition-colors hover:border-[#d7ed84] hover:text-[#d7ed84]"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                                         <path d={social.icon} />
@@ -33,18 +29,17 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Dynamic Link Columns */}
                     {footerData.links.map((column, index) => (
                         <div key={index}>
-                            <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">
+                            <h4 className="mb-5 text-xs font-bold uppercase text-white">
                                 {column.title}
                             </h4>
-                            <ul className="space-y-4">
+                            <ul className="space-y-3">
                                 {column.items.map((link, linkIndex) => (
                                     <li key={linkIndex}>
                                         <a
                                             href={link.path}
-                                            className="text-gray-400 hover:text-blue-400 transition-colors duration-200"
+                                            className="text-sm text-white/60 transition-colors hover:text-[#d7ed84]"
                                         >
                                             {link.name}
                                         </a>
@@ -54,27 +49,25 @@ const Footer = () => {
                         </div>
                     ))}
 
-                    {/* Contact Details in Footer */}
                     <div>
-                        <h4 className="text-white font-bold mb-6 uppercase tracking-wider text-sm">
+                        <h4 className="mb-5 text-xs font-bold uppercase text-white">
                             Contact Us
                         </h4>
-                        <ul className="space-y-4 text-gray-400">
-                            <li>{companyData.email}</li>
+                        <ul className="space-y-3 text-sm text-white/60">
+                            <li><a href={`mailto:${companyData.email}`} className="transition-colors hover:text-[#d7ed84]">{companyData.email}</a></li>
                             <li>{companyData.phone}</li>
                         </ul>
                     </div>
 
                 </div>
 
-                {/* Bottom Footer / Copyright */}
-                <div className="pt-8 border-t border-gray-800 text-sm text-center md:text-left flex flex-col md:flex-row justify-between items-center">
-                    <p className="mb-4 md:mb-0">
+                <div className="flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-6 text-xs text-white/50 sm:flex-row sm:items-center">
+                    <p>
                         &copy; {new Date().getFullYear()} {companyData.name}. All rights reserved.
                     </p>
-                    <div className="flex space-x-6">
-                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+                    <div className="flex gap-5">
+                        <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
+                        <a href="#" className="transition-colors hover:text-white">Terms of Service</a>
                     </div>
                 </div>
 

@@ -2,49 +2,41 @@ import { featuresData } from '../../data/content';
 
 const Features = () => {
     return (
-        <section id="features" className="bg-blue-900 text-white">
+        <section id="features" className="bg-[#24483a] text-white">
             <div className="section-container section-padding">
+                <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+                    <div className="max-w-md">
+                        <h2 className="mb-3 text-xs font-bold uppercase text-[#d7ed84]">{featuresData.heading}</h2>
+                        <h3 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">{featuresData.subheading}</h3>
+                        <p className="mt-5 text-base leading-relaxed text-white/70">
+                            Reliable partnership, thoughtful execution, and support that stays with you after launch.
+                        </p>
+                    </div>
 
-                {/* Section Header */}
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-blue-300 font-semibold tracking-wide uppercase text-sm mb-2">
-                        {featuresData.heading}
-                    </h2>
-                    <h3 className="text-3xl md:text-4xl font-bold mb-4">
-                        {featuresData.subheading}
-                    </h3>
-                </div>
-
-                {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-                    {featuresData.items.map((feature, index) => (
-                        <div key={index} className="flex flex-col items-center text-center">
-                            {/* Icon */}
-                            <div className="w-16 h-16 rounded-full bg-blue-800 flex items-center justify-center mb-6 shadow-lg">
-                                <svg
-                                    className="w-8 h-8 text-blue-300"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth="2"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
-                                </svg>
+                    <div className="grid gap-x-8 sm:grid-cols-2">
+                        {featuresData.items.map((feature, index) => (
+                            <div key={index} className="flex gap-4 border-t border-white/20 py-6">
+                                <div className="grid size-11 shrink-0 place-items-center bg-white/10">
+                                    <svg
+                                        className="h-5 w-5 text-[#d7ed84]"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                        strokeWidth="1.7"
+                                    >
+                                        <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 className="mb-2 text-base font-semibold text-white">{feature.title}</h4>
+                                    <p className="text-sm leading-relaxed text-white/70">{feature.description}</p>
+                                </div>
                             </div>
-
-                            {/* Content */}
-                            <h4 className="text-xl font-bold mb-3">
-                                {feature.title}
-                            </h4>
-                            <p className="text-blue-100 leading-relaxed text-sm md:text-base">
-                                {feature.description}
-                            </p>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-
             </div>
-        </section>
+        </section >
     );
 };
 

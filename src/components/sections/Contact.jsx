@@ -9,99 +9,91 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="bg-gray-50">
+        <section id="contact" className="bg-[#24483a]">
             <div className="section-container section-padding">
-
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-2">
-                        {contactData.heading}
-                    </h2>
-                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
-                        {contactData.subheading}
-                    </h3>
+                <div className="mb-10 max-w-2xl md:mb-14">
+                    <h2 className="mb-3 text-xs font-bold uppercase text-[#d7ed84]">{contactData.heading}</h2>
+                    <h3 className="text-3xl font-semibold leading-tight text-white sm:text-4xl">{contactData.subheading}</h3>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-
-                    {/* Contact Information */}
-                    <div className="space-y-10">
+                <div className="mx-auto grid max-w-6xl items-start gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+                    <div className="space-y-9 pt-1">
                         <div>
-                            <p className="text-gray-600 leading-relaxed mb-8">
+                            <p className="max-w-md text-base leading-relaxed text-white/75">
                                 {contactData.description}
                             </p>
                         </div>
 
-                        <div className="space-y-8">
+                        <div className="space-y-6">
                             {contactData.contactInfo.map((info, index) => (
                                 <div key={index} className="flex items-start">
-                                    <div className="w-12 h-12 bg-white rounded-lg shadow-sm border border-gray-100 flex items-center justify-center mr-6 flex-shrink-0 text-blue-600">
-                                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <div className="mr-4 grid size-11 shrink-0 place-items-center border border-white/20 text-[#d7ed84]">
+                                        <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={info.icon} />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-bold text-gray-900 mb-1">{info.title}</h4>
-                                        <p className="text-gray-600">{info.details}</p>
+                                        <h4 className="mb-1 text-sm font-semibold text-white">{info.title}</h4>
+                                        <p className="text-sm leading-relaxed text-white/70">{info.details}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Contact Form */}
-                    <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 md:p-10">
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="border border-white/10 bg-[#f8f9f5] p-5 sm:p-8 lg:p-9">
+                        <form onSubmit={handleSubmit} className="space-y-5">
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                    <label htmlFor="name" className="mb-2 block text-sm font-semibold text-[#344139]">Name</label>
                                     <input
                                         type="text"
                                         id="name"
                                         name="name"
                                         required
-                                        className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors bg-gray-50 focus:bg-white"
+                                        className="w-full rounded-sm border border-[#d5ddd3] bg-white px-4 py-3 text-sm text-[#1f2a25] transition-colors placeholder:text-[#98a199] focus:border-[#315c4b] focus:outline-none focus:ring-2 focus:ring-[#315c4b]/20"
                                         placeholder="John Doe"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                    <label htmlFor="email" className="mb-2 block text-sm font-semibold text-[#344139]">Email</label>
                                     <input
                                         type="email"
                                         id="email"
                                         name="email"
                                         required
-                                        className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors bg-gray-50 focus:bg-white"
+                                        className="w-full rounded-sm border border-[#d5ddd3] bg-white px-4 py-3 text-sm text-[#1f2a25] transition-colors placeholder:text-[#98a199] focus:border-[#315c4b] focus:outline-none focus:ring-2 focus:ring-[#315c4b]/20"
                                         placeholder="john@example.com"
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                <label htmlFor="subject" className="mb-2 block text-sm font-semibold text-[#344139]">Subject</label>
                                 <input
                                     type="text"
                                     id="subject"
                                     name="subject"
                                     required
-                                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors bg-gray-50 focus:bg-white"
+                                    className="w-full rounded-sm border border-[#d5ddd3] bg-white px-4 py-3 text-sm text-[#1f2a25] transition-colors placeholder:text-[#98a199] focus:border-[#315c4b] focus:outline-none focus:ring-2 focus:ring-[#315c4b]/20"
                                     placeholder="How can we help you?"
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <label htmlFor="message" className="mb-2 block text-sm font-semibold text-[#344139]">Message</label>
                                 <textarea
                                     id="message"
                                     name="message"
                                     rows="4"
                                     required
-                                    className="w-full px-4 py-3 rounded-md border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 transition-colors bg-gray-50 focus:bg-white resize-none"
+                                    className="w-full resize-none rounded-sm border border-[#d5ddd3] bg-white px-4 py-3 text-sm text-[#1f2a25] transition-colors placeholder:text-[#98a199] focus:border-[#315c4b] focus:outline-none focus:ring-2 focus:ring-[#315c4b]/20"
                                     placeholder="Your message here..."
                                 ></textarea>
                             </div>
 
-                            <button type="submit" className="w-full btn-primary py-4">
+                            <button type="submit" className="btn-primary w-full">
                                 Send Message
                             </button>
                         </form>

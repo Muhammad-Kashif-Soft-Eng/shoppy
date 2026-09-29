@@ -6,46 +6,44 @@ const Navbar = () => {
     const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useUIStore();
 
     return (
-        <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
+        <nav className="sticky top-0 z-50 border-b border-[#e4e8e1] bg-[#f8f9f5]/95 backdrop-blur-sm">
             <div className="section-container">
-                <div className="flex justify-between h-20">
-                    {/* Logo Section */}
+                <div className="flex h-[72px] items-center justify-between">
                     <div className="flex items-center">
-                        <Link to="/" onClick={closeMobileMenu} className="flex items-center">
-                            <span className="text-2xl font-bold text-blue-600">{companyData.name}</span>
+                        <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-2 text-[#24483a]">
+                            <span className="grid h-8 w-8 place-items-center rounded-sm bg-[#315c4b] text-sm font-bold text-[#d7ed84]">P</span>
+                            <span className="text-[1.35rem] font-bold">{companyData.name}</span>
                         </Link>
                     </div>
 
-                    {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden items-center gap-8 md:flex">
                         {navLinks.map((link, index) => (
                             <a
                                 key={index}
                                 href={link.path}
-                                className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+                                className="text-sm font-medium text-[#58655d] transition-colors hover:text-[#24483a]"
                             >
                                 {link.title}
                             </a>
                         ))}
-                        <a href="#contact" className="btn-primary px-5 py-2.5">
+                        <a href="#contact" className="btn-primary min-h-10 px-4 py-2 text-sm">
                             Contact Us
                         </a>
                     </div>
 
-                    {/* Mobile menu button */}
                     <div className="flex items-center md:hidden">
                         <button
                             onClick={toggleMobileMenu}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
-                            aria-expanded="false"
+                            className="inline-flex size-10 items-center justify-center rounded-sm text-[#24483a] transition-colors hover:bg-[#edf1e9]"
+                            aria-expanded={isMobileMenuOpen}
+                            aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
                         >
-                            <span className="sr-only">Open main menu</span>
                             {isMobileMenuOpen ? (
-                                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             ) : (
-                                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg className="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             )}
@@ -54,16 +52,15 @@ const Navbar = () => {
                 </div>
             </div>
 
-            {/* Mobile Navigation */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-white border-b border-gray-100">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="border-t border-[#e4e8e1] bg-[#f8f9f5] shadow-lg md:hidden">
+                    <div className="section-container space-y-1 py-4">
                         {navLinks.map((link, index) => (
                             <a
                                 key={index}
                                 href={link.path}
                                 onClick={closeMobileMenu}
-                                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+                                className="block rounded-sm px-3 py-3 text-base font-medium text-[#435148] transition-colors hover:bg-[#edf1e9] hover:text-[#24483a]"
                             >
                                 {link.title}
                             </a>
@@ -71,7 +68,7 @@ const Navbar = () => {
                         <a
                             href="#contact"
                             onClick={closeMobileMenu}
-                            className="block w-full text-center mt-4 btn-primary"
+                            className="btn-primary mt-3 w-full"
                         >
                             Contact Us
                         </a>
