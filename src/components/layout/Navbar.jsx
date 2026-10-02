@@ -6,12 +6,12 @@ const Navbar = () => {
     const { isMobileMenuOpen, toggleMobileMenu, closeMobileMenu } = useUIStore();
 
     return (
-        <nav className="sticky top-0 z-50 border-b border-[#e4e8e1] bg-[#f8f9f5]/95 backdrop-blur-sm">
+        <nav className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur-sm">
             <div className="section-container">
                 <div className="flex h-[72px] items-center justify-between">
                     <div className="flex items-center">
-                        <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-2 text-[#24483a]">
-                            <span className="grid h-8 w-8 place-items-center rounded-sm bg-[#315c4b] text-sm font-bold text-[#d7ed84]">P</span>
+                        <Link to="/" onClick={closeMobileMenu} className="flex items-center gap-2 text-green-deep">
+                            <span className="grid h-8 w-8 place-items-center rounded-sm bg-green text-sm font-bold text-lime">P</span>
                             <span className="text-[1.35rem] font-bold">{companyData.name}</span>
                         </Link>
                     </div>
@@ -21,7 +21,7 @@ const Navbar = () => {
                             <a
                                 key={index}
                                 href={link.path}
-                                className="text-sm font-medium text-[#58655d] transition-colors hover:text-[#24483a]"
+                                className="text-sm font-medium text-brand-muted transition-colors hover:text-green-deep"
                             >
                                 {link.title}
                             </a>
@@ -34,7 +34,7 @@ const Navbar = () => {
                     <div className="flex items-center md:hidden">
                         <button
                             onClick={toggleMobileMenu}
-                            className="inline-flex size-10 items-center justify-center rounded-sm text-[#24483a] transition-colors hover:bg-[#edf1e9]"
+                            className="inline-flex size-10 items-center justify-center rounded-sm text-green-deep transition-colors hover:bg-surface"
                             aria-expanded={isMobileMenuOpen}
                             aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
                         >
@@ -53,14 +53,14 @@ const Navbar = () => {
             </div>
 
             {isMobileMenuOpen && (
-                <div className="border-t border-[#e4e8e1] bg-[#f8f9f5] shadow-lg md:hidden">
+                <div className="border-t border-line bg-paper shadow-lg md:hidden">
                     <div className="section-container space-y-1 py-4">
                         {navLinks.map((link, index) => (
                             <a
                                 key={index}
                                 href={link.path}
                                 onClick={closeMobileMenu}
-                                className="block rounded-sm px-3 py-3 text-base font-medium text-[#435148] transition-colors hover:bg-[#edf1e9] hover:text-[#24483a]"
+                                className="block rounded-sm px-3 py-3 text-base font-medium text-ink-soft transition-colors hover:bg-surface hover:text-green-deep"
                             >
                                 {link.title}
                             </a>

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { faqData } from '../../data/content';
 
 const FAQ = () => {
-    // Local UI state for accordion interaction
     const [activeIndex, setActiveIndex] = useState(null);
 
     const toggleAccordion = (index) => {
@@ -17,30 +16,35 @@ const FAQ = () => {
                         <h2 className="eyebrow mb-3">{faqData.heading}</h2>
                         <h3 className="section-title">{faqData.subheading}</h3>
                     </div>
-                    <div className="border-t border-[#e4e8e1]">
+
+                    <div className="border-t border-line">
                         {faqData.items.map((item, index) => {
                             const isOpen = activeIndex === index;
                             const answerId = `faq-answer-${index}`;
 
                             return (
-                                <div key={index} className="border-b border-[#e4e8e1]">
+                                <div key={index} className="border-b border-line">
                                     <button
                                         onClick={() => toggleAccordion(index)}
-                                        className="flex w-full items-center justify-between gap-5 py-5 text-left text-[#1f2a25] transition-colors hover:text-[#315c4b] sm:py-6"
+                                        className="flex w-full items-center gap-5 py-5 text-left text-ink transition-colors hover:text-green sm:py-6"
                                         aria-expanded={isOpen}
                                         aria-controls={answerId}
                                     >
-                                        <span className="text-base font-semibold sm:text-lg">{item.question}</span>
-                                        <span className={`grid size-8 shrink-0 place-items-center rounded-full border border-[#dfe5dd] text-xl font-normal leading-none text-[#315c4b] transition-transform ${isOpen ? 'rotate-45 bg-[#edf1e9]' : ''}`} aria-hidden="true">
+                                        <span className="flex-1 text-base font-semibold sm:text-lg">{item.question}</span>
+                                        <span
+                                            className={`grid size-8 shrink-0 place-items-center self-center rounded-full border border-[#dfe5dd] text-xl font-normal leading-none text-green transition-all duration-200 ${isOpen ? 'rotate-45 bg-surface' : 'bg-white'}`}
+                                            aria-hidden="true"
+                                        >
                                             +
                                         </span>
                                     </button>
+
                                     <div
                                         id={answerId}
                                         className={`grid transition-all duration-300 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                                     >
                                         <div className="overflow-hidden">
-                                            <p className="max-w-2xl pb-6 pr-10 text-sm leading-relaxed text-[#65716a] sm:text-base">
+                                            <p className="max-w-2xl pb-6 pr-10 text-sm leading-relaxed text-muted sm:text-base">
                                                 {item.answer}
                                             </p>
                                         </div>

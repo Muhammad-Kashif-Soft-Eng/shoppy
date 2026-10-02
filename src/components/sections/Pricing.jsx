@@ -2,7 +2,7 @@ import { pricingData } from '../../data/content';
 
 const Pricing = () => {
     return (
-        <section id="pricing" className="bg-[#f1f3ed]">
+        <section id="pricing" className="bg-surface-alt">
             <div className="section-container section-padding">
                 <div className="mb-10 max-w-2xl md:mb-14">
                     <h2 className="eyebrow mb-3">{pricingData.heading}</h2>
@@ -13,23 +13,23 @@ const Pricing = () => {
                     {pricingData.plans.map((plan, index) => (
                         <div
                             key={index}
-                            className={`relative flex h-full flex-col border bg-white ${plan.isPopular ? 'border-[#315c4b] md:-translate-y-2' : 'border-[#dfe5dd]'}`}
+                            className={`relative flex h-full flex-col border bg-white ${plan.isPopular ? 'border-green md:-translate-y-2' : 'border-[#dfe5dd]'}`}
                         >
-                            {plan.isPopular && <div className="absolute inset-x-0 top-0 h-1 bg-[#d7ed84]" />}
+                            {plan.isPopular && <div className="absolute inset-x-0 top-0 h-1 bg-lime" />}
                             {plan.isPopular && (
                                 <div className="px-7 pt-5">
-                                    <span className="text-xs font-bold uppercase text-[#315c4b]">
+                                    <span className="text-xs font-bold uppercase text-green">
                                         Most Popular
                                     </span>
                                 </div>
                             )}
 
-                            <div className={`border-b border-[#e4e8e1] px-7 pb-6 ${plan.isPopular ? 'pt-3' : 'pt-7'}`}>
-                                <h4 className="mb-2 text-xl font-semibold text-[#1f2a25]">{plan.name}</h4>
-                                <p className="mb-6 min-h-12 text-sm leading-relaxed text-[#65716a]">{plan.description}</p>
+                            <div className={`border-b border-line px-7 pb-6 ${plan.isPopular ? 'pt-3' : 'pt-7'}`}>
+                                <h4 className="mb-2 text-xl font-semibold text-ink">{plan.name}</h4>
+                                <p className="mb-6 min-h-12 text-sm leading-relaxed text-muted">{plan.description}</p>
                                 <div className="flex items-baseline">
-                                    <span className="text-4xl font-semibold text-[#1f2a25]">{plan.price}</span>
-                                    <span className="ml-1 text-sm font-medium text-[#65716a]">{plan.period}</span>
+                                    <span className="text-4xl font-semibold text-ink">{plan.price}</span>
+                                    <span className="ml-1 text-sm font-medium text-muted">{plan.period}</span>
                                 </div>
                             </div>
 
@@ -40,7 +40,7 @@ const Pricing = () => {
                                             <svg className="mr-3 mt-0.5 h-5 w-5 shrink-0 text-[#52775f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                             </svg>
-                                            <span className="text-sm leading-relaxed text-[#58655d]">{feature}</span>
+                                            <span className="text-sm leading-relaxed text-brand-muted">{feature}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -57,7 +57,6 @@ const Pricing = () => {
                         </div>
                     ))}
                 </div>
-
             </div>
         </section>
     );

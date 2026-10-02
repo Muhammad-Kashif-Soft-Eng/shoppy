@@ -2,12 +2,12 @@ import { heroData } from '../../data/content';
 
 const Hero = () => {
     return (
-        <section id="hero" className="overflow-hidden bg-[#f8f9f5]">
+        <section id="hero" className="overflow-hidden bg-paper">
             <div className="section-container pb-16 pt-14 md:pb-20 md:pt-20 lg:pb-24 lg:pt-24">
                 <div className="grid items-center gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:gap-16">
                     <div className="flex flex-col items-start">
                         <p className="eyebrow mb-5 flex items-center gap-2">
-                            <span className="h-2 w-2 rounded-full bg-[#9cb85b]" />
+                            <span className="h-2 w-2 rounded-full bg-olive" />
                             Digital partners for ambitious teams
                         </p>
                         <h1 className="heading-primary max-w-[620px]">
@@ -33,7 +33,7 @@ const Hero = () => {
                     </div>
 
                     <div className="relative min-w-0">
-                        <div className="aspect-[4/3] overflow-hidden rounded-sm bg-[#dce4da]">
+                        <div className="aspect-[4/3] overflow-hidden rounded-sm bg-card-soft">
                             <img
                                 src={heroData.image}
                                 alt="Business professionals collaborating"
@@ -41,9 +41,9 @@ const Hero = () => {
                                 fetchPriority="high"
                             />
                         </div>
-                        <div className="absolute bottom-4 left-4 max-w-[230px] bg-[#f8f9f5] px-4 py-3 sm:bottom-6 sm:left-6 sm:px-5">
-                            <span className="block text-xs font-semibold uppercase text-[#315c4b]">Primora, in practice</span>
-                            <span className="mt-1 block text-sm font-medium text-[#1f2a25]">Clear thinking. Measurable progress.</span>
+                        <div className="absolute bottom-4 left-4 max-w-[230px] bg-paper px-4 py-3 sm:bottom-6 sm:left-6 sm:px-5">
+                            <span className="block text-xs font-semibold uppercase text-green">Primora, in practice</span>
+                            <span className="mt-1 block text-sm font-medium text-ink">Clear thinking. Measurable progress.</span>
                         </div>
                     </div>
                 </div>

@@ -19,16 +19,16 @@ const Services = () => {
                         <div
                             key={index}
                             className={`group flex min-h-[270px] flex-col border p-6 transition-colors duration-200 sm:p-7 ${index === 0
-                                ? 'border-[#315c4b] bg-[#315c4b] text-white'
-                                : 'border-[#e4e8e1] bg-[#f8f9f5] text-[#1f2a25] hover:border-[#aab8a8]'
+                                ? 'border-green bg-green text-white'
+                                : 'border-line bg-paper text-ink hover:border-[#aab8a8]'
                                 }`}
                         >
                             <div className="mb-8 flex items-center justify-between">
-                                <span className={`text-xs font-semibold ${index === 0 ? 'text-[#d7ed84]' : 'text-[#849087]'}`}>
+                                <span className={`text-xs font-semibold ${index === 0 ? 'text-lime' : 'text-[#849087]'}`}>
                                     0{index + 1}
                                 </span>
                                 <svg
-                                    className={`h-6 w-6 ${index === 0 ? 'text-[#d7ed84]' : 'text-[#315c4b]'}`}
+                                    className={`h-6 w-6 ${index === 0 ? 'text-lime' : 'text-green'}`}
                                     fill="none"
                                     viewBox="0 0 24 24"
                                     stroke="currentColor"
@@ -38,10 +38,10 @@ const Services = () => {
                                 </svg>
                             </div>
 
-                            <h4 className={`mb-3 text-lg font-semibold ${index === 0 ? 'text-white' : 'text-[#1f2a25]'}`}>
+                            <h4 className={`mb-3 text-lg font-semibold ${index === 0 ? 'text-white' : 'text-ink'}`}>
                                 {service.title}
                             </h4>
-                            <p className={`mt-auto text-sm leading-relaxed ${index === 0 ? 'text-white/75' : 'text-[#65716a]'}`}>
+                            <p className={`mt-auto text-sm leading-relaxed ${index === 0 ? 'text-white/75' : 'text-muted'}`}>
                                 {service.description}
                             </p>
                         </div>
